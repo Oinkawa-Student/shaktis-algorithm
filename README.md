@@ -35,7 +35,7 @@ The C++ engine utilizes a zero-overhead Compressed Sparse Row (CSR) parser to ma
 * **Total Execution Time:** 435.39 seconds
 * **Throughput:** ~715,000 cycles evaluated per second
 
-*These empirical results demonstrate the algorithm's ability to safely allocate and filter over 66 million unique Set-Trie nodes in main memory without triggering OOM bounds, successfully bypassing the $O(C^2 \cdot M)$ subsumption bottleneck.*
+*These empirical results demonstrate the algorithm's ability to safely allocate and filter over 66 million unique Set-Trie nodes in main memory without triggering OOM bounds, successfully bypassing the O(C^2.M) subsumption bottleneck.*
 
 ## 📂 Repository Structure
 * `shakti_nodes_only.cpp` - Base implementation focusing on node-level cycle detection.
