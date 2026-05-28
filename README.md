@@ -1,28 +1,30 @@
-# Shakti's Algorithm
+# Shakti's Algorithm: Efficient Enumeration of Bounded Circuits
 
-![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
-![Language: C++](https://img.shields.io/badge/Language-C++17-orange.svg)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20422392.svg)](https://doi.org/10.5281/zenodo.20422392)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Language: C++](https://img.shields.io/badge/Language-C++-blue.svg)](https://isocpp.org/)
 
-This repository contains the C++ source code and benchmarking harnesses for **Shakti's Algorithm**, a novel Depth-First Search architecture optimized for enumerating bounded circuits in directed graphs. 
+This repository contains the official C++ implementation for **Shakti's Algorithm**, a novel Depth-First Search architecture optimized for circuit enumeration in directed graphs with capacity constraints. 
 
-This codebase accompanies the paper: *"Shakti's Algorithm: Efficient Enumeration of Bounded Circuits Using Set-Trie Filtering"*.
+## 📄 Academic Publication
+The full theoretical paper, complexity proofs, and mathematical models are published on Zenodo as an open-access preprint.
 
-## Overview
-Traditional cycle-finding algorithms (like Johnson's) halt upon vertex repetition. Shakti's Algorithm shifts the bounding constraint from vertices to edges, allowing for the extraction of complex, self-intersecting closed walks. 
+**Read the Paper:** [https://doi.org/10.5281/zenodo.20422392](https://doi.org/10.5281/zenodo.20422392)
 
-To resolve the $O(C^2 \cdot M)$ bottleneck of filtering subsumed topological sub-cycles, this implementation introduces a highly cache-friendly **Set-Trie optimization**, drastically reducing filtering time to $O(C \log C + C \cdot D_{Trie})$.
+**Citation:**
+> Singh, S. (2026). Shakti's Algorithm: Efficient Enumeration of Bounded Circuits Using Set-Trie Filtering. *Zenodo*. https://doi.org/10.5281/zenodo.20422392
 
-## Files in this Repository
-* `shakti_nodes_only.cpp`: The base DFS generator for standard graph topologies (Capacity = 1).
-* `shakti_edges_trie.cpp`: The full implementation featuring the Set-Trie optimization for bounded circuits (Capacity = k).
-* `benchmark_v2.cpp`: The parameter-sweep harness used to generate the empirical execution data for the paper.
+## ⚡ Performance & Optimization
+Extracting non-simple circuits (where nodes may repeat but edges are bounded) traditionally introduces severe combinatorial explosion. This implementation addresses the O(C^2 * M) bottleneck of filtering subsumed topological sub-cycles by introducing a highly cache-friendly **Set-Trie optimization**, drastically reducing time complexity on dense graphs.
 
-## Compilation and Execution
-This code leverages standard C++17. For accurate benchmarking, it is highly recommended to compile with the `-O3` optimization flag.
+## 📂 Repository Structure
+* `shakti_nodes_only.cpp` - Base implementation focusing on node-level cycle detection.
+* `shakti_edges_trie.cpp` - Optimized implementation featuring the Set-Trie data structure for high-speed sub-cycle filtering.
+* `benchmark_v2.cpp` - Benchmarking suite to test enumeration speed and memory efficiency against standard implementations.
+
+## 🚀 How to Run
+To compile and run the optimized algorithm, use the `g++` compiler with the `-O3` optimization flag:
 
 ```bash
-# Compile the Set-Trie implementation
-g++ -O3 shakti_edges_trie.cpp -o shakti_trie
-
-# Execute
-./shakti_trie
+g++ -O3 shakti_edges_trie.cpp -o shakti_algo
+./shakti_algo
