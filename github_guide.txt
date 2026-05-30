@@ -1,0 +1,22 @@
+Part A:
+
+1. Download the GitHub repository entirely as zip and then extract it
+
+Part B:
+
+1. Go to http://snap.stanford.edu/data
+2. Under web graphs you will find a link named web-Google. Tap on it.
+3. After that download the web-Google.txt.gz file under file section
+4. Extract the file as web-Google.txt
+5. Move the web-Google.txt file to the folder you just downloaded and extracted from github
+
+Part C: 
+Checking the efficiency on web-Google.txt
+
+1. Open terminal then locate the folder in terminal you downloaded from github
+2. (i) For windows terminal:
+	1st command: g++ -O3 shakti_benchmark_suite.cpp -o shakti_bench
+	2nd command: ./shakti_bench
+
+
+Note: The code was written in the most efficient way possible. size_t for non-negative integers and all the commands have their own reason discussed on @CourseSeeded youtube channel (Direct Link to channel: https://www.youtube.com/@CourseSeeded)
